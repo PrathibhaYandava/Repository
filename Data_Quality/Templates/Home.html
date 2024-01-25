@@ -1,0 +1,141 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'custom.css' %}">
+    <title>Accelerator Selection Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+
+        {% comment %} header {
+            background-color: #0077cc;
+            color: #fff;
+            padding: 17px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.5em;
+        } {% endcomment %}
+
+        {% comment %} header img {
+            max-height: 50px;
+        } {% endcomment %}
+
+        {% comment %} nav {
+            display: flex;
+            gap: 1em;
+            margin-left: 1em;
+        } {% endcomment %}
+
+        {% comment %} nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        } {% endcomment %}
+
+        {% comment %} nav a:hover {
+            background-color: #005580;
+        } {% endcomment %}
+
+        section {
+            margin: 2em;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 1em;
+        }
+
+        .block {
+            background: linear-gradient(to bottom, #800000, #f5f5f5);
+            padding: 3em;
+            border-radius: 0;
+            border: 2px solid #000;
+        }
+
+        .block2 {
+            background: linear-gradient(to bottom, #000080, #c9d5f5);
+            padding: 3em;
+            border-radius: 0;
+            border: 2px solid #000;
+        }
+
+        .block3 {
+            background: linear-gradient(to bottom, #008080, #a0e6e6);
+            padding: 3em;
+            border-radius: 0;
+            border: 2px solid #000;
+        }
+
+        .block4 {
+            background: linear-gradient(to bottom, #ffd700, #dcdcdc);
+            padding: 3em;
+            border-radius: 0;
+            border: 2px solid #000;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2em;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    
+        <header>
+      <div>
+          <img src="{% static 'capgemini.png' %}" alt="Capgemini Logo">
+          <nav>
+            <div class="navbar" style="display: flex;space-between;">
+                <a href="#" style="padding-left: 500px; color:white">Home</a>
+                <a href="#" style="padding-left: 40px; color:white">About</a>
+                <a href="#" style="padding-left: 40px; color:white">Contact</a>
+                <a href="#" style="padding-left: 40px; color:white">User1</a>
+             </div>
+          </nav>
+      </div>
+  </header>
+  <br>
+    <h2 style="text-align: center; color: #0077cc; font-size: 2em; font-weight: bold;">ACCELERATOR SELECTION PAGE</h2>
+    <section>
+        <div class="block">
+            <h2>DQ Assessment</h2>
+            <p>Metadata-driven assessment of inventory which gives more insights on inventory</p>
+        </div>
+
+        <div class="block2">
+            <a style="color:black"href="{% url 'ReportForm' %}">
+            <h2>Reconciliation Report Generation</h2>
+            </a>
+            <p>Toolkit to compare metadata across from IDQ and CDQ repositories for reconciling the migrated objects</p>
+        </div>
+
+        <div class="block3">
+            <h2>Job Orchestrator</h2>
+            <p>Automated scripts for bulk execution of multiple objects</p>
+        </div>
+
+        <div class="block4">
+            <h2>Parameter File Conversion</h2>
+            <p>Assessment and conversion of parameter file and convert IDQ parameter files to CDQ compatible</p>
+        </div>
+    </section>
+
+    <footer>
+        <h6> All rights reserved by Capgemini. Copyright ©2024</h6>
+    </footer>
+</body>
+
+</html>

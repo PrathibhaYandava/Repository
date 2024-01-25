@@ -1,0 +1,87 @@
+<style>
+    head{
+        header img 
+            max-height: 50px;
+        
+    }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+ 
+        header {
+            background-color: #0077cc;
+            color: #fff;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.5em;
+        }
+ 
+        header img {
+            max-height: 50px;
+        }
+ 
+        nav {
+            display: flex;
+            gap: 1em;
+            margin-left: 1em;
+        }
+ 
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+ 
+        nav a:hover {
+            background-color: #005580;
+        }
+ 
+        section {
+            margin: 2em;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 1em;
+        }
+ 
+        .block {
+            background: linear-gradient(to bottom, #800000, #f5f5f5);
+            padding: 1em;
+            border-radius: 0;
+            border: 2px solid #000;
+        }
+ 
+        .block2 {
+            background: linear-gradient(to bottom, #000080, #c9d5f5);
+            padding: 1em;
+            border-radius: 0;
+            border: 2px solid #000;
+        }
+ 
+        .block3 {
+            background: linear-gradient(to bottom, #008080, #a0e6e6);
+            padding: 1em;
+            border-radius: 0;
+            border: 2px solid #000;
+        }
+ 
+        .block4 {
+            background: linear-gradient(to bottom, #ffd700, #dcdcdc);
+            padding: 1em;
+            border-radius: 0;
+            border: 2px solid #000;
+        }
+ 
+        footer {
+            text-align: center;
+            margin-top: 2em;
+            color: #555;
+        }
+    </style>

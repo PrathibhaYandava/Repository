@@ -1,0 +1,164 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capgemini</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'custom.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <header>
+      <div>
+          <img src="{% static 'capgemini.png' %}" alt="Capgemini Logo">
+          <nav>
+              <div class="navbar" style="display: flex;space-between;">
+                 <a href="#" style="padding-right: 40px; color:white">Home</a>
+                 <a href="#" style="padding-right: 40px; color:white">About</a>
+                 <a href="#" style="padding-right: 40px; color:white">Contact</a>
+                 <a href="#" style="padding-right: 40px; color:white">User1</a>
+              </div>
+          </nav>
+      </div>
+  </header>
+    <head>
+        <div>
+            <style>
+                h2 {text-align: center; color:#3a8ddc}
+             </style>
+            <h2> Configuration </h2>
+        </div>
+       
+    </head>
+    <body>
+    
+        <section>
+          <style>
+            .small-label {
+                font-size: 10px; /* Adjust the font size to your preference */
+                font-weight: bold;
+                padding-left: 10px; 
+                {% comment %} background-color: blue; {% endcomment %}
+            }
+            .custom-button{
+              width: 200px;
+              font-size: 12px;
+            }
+            .custom-width{
+              width: 400px; 
+            }
+            .badge-primary {
+              width: 600px;
+              background-color:#2cccc4;
+              color:white;
+              align-items: center;
+              padding : 10px;
+            }
+            
+        </style>
+            <div class="form-row" style="padding:5px">
+                <div class="col">  
+                                <h1><span class="badge badge-pill badge-primary"> Volumetric Details</span></h1>
+                                <table border="1">
+                                
+                                  <thead>
+                                      <tr>
+                                          <th style="background:#2cccc4;color:white;">Project Folder</th>
+                                          <th style="background:#2cccc4;color:white;">Profiles </th>
+                                          <th style="background:#2cccc4;color:white;">Score Cards </th>
+                                          <th style="background:#2cccc4;color:white;">Mappings </th>
+                                          <th style="background:#2cccc4;color:white;">Rules/Mapplets </th>
+                                          <th style="background:#2cccc4;color:white;">LDO </th>
+                                          <th style="background:#2cccc4;color:white;">PDO </th>
+                                          <!-- Add more headers for additional fields -->
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      {% for row in data %}
+                                      <tr>
+                                          {% for item in row %}
+                                          
+                                              <td>{{ item }}</td>
+                                              {% comment %} <td>{{ item.1 }}</td>
+                                              <td>{{ item.2 }}</td>
+                                              <td>{{ item.3 }}</td>
+                                              <td>{{ item.4 }}</td> {% endcomment %}
+                                              <!-- Add more cells for additional fields -->
+                                          {% endfor %}
+                                        </tr>
+                                          
+                                      {% endfor %} 
+                                  </tbody>
+                              </table>
+
+                       
+                </div>  
+            <div class="col">
+
+            <h1><span class="badge badge-pill badge-primary">Cloud</span></h1>
+            <form method="post" action="/cloud/">
+                {% csrf_token %} 
+                <div class="form-group row">
+                  <label for="IDomain" class="col-sm-2 col-form-label small-label">Domain</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="IDoamin" class="form-control col-sm-12 ">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="IRepository" class="col-sm-2 col-form-label small-label">Repository</label>
+                  <div class="col-sm-10">
+                    <input type="text"  name="IRepository" class="form-control col-sm-12 ">
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label for="IURL" class="col-sm-2 col-form-label small-label">Informatica Cloud URL</label>
+                    <div class="col-sm-10">
+                      <input type="text"  name="IURL" class="form-control col-sm-12 ">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="IUserName" class="col-sm-2 col-form-label small-label">Informatica Cloud Username</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="IUserName" class="form-control col-sm-12 ">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="IPassword" class="col-sm-2 col-form-label small-label">Informatica Cloud Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" name="IPassword" class="form-control col-sm-12 ">
+                    </div>
+                  </div>
+                  {% if message3 %}
+                        {{message3}}
+                  {%else%} 
+                    <input  type= "submit" class="btn btn-primary btn-lg custom-button" value="TEST CONNECTIVITY - CLOUD" />
+                  {%endif%} 
+             </form>
+         </div>
+        </div>   
+    </body>
+    </html>
+    
+  </main>
+
+  <style>
+    h6 {
+        font-size: 9px; /* Adjust the font size to your preference */
+        text-align: center; /* Center-align the text */
+        margin-top: 20px; /* Add some top margin for better spacing */
+    }
+</style>
+ 
+    
+     <h6> All rights reserved by Capgemini. Copyright ©2024</h6>
+
+</body>
+</html>
