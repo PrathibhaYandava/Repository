@@ -1,35 +1,59 @@
-from django.shortcuts import render
-from Data_Quality.forms import OnpremiseForm,CloudForm
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from Data_Quality.forms import OnpremiseForm, CloudForm, SignupForm
 import oracledb
 import requests
 import json
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+
+# def login_view(request):
+#     error_message = None
+
+#     if request.method == 'POST':
+#         username = request.POST.get('username')
+#         password = request.POST.get('password')
+
+#         user = authenticate(request, username=username, password=password)
+
+#         if user is not None:
+#             login(request, user)  # Automatically log in the user
+#             return redirect('home')  # Redirect to home page if authenticated
+#         else:
+#             error_message = 'Invalid credentials'
+
+#     return render(request, 'login_page.html', {'error': error_message})
 
 def login_view(request):
-    error_message = None
-
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
 
-        if user is not None:
-            login(request, user)
-            return redirect('success_page')  # Redirect to success page
-        else:
-            error_message = 'Invalid credentials'
+        # Check if the provided username and password match the expected values
+        if username == 'admin' and password == '12345':
+            # Redirect to the desired page after successful login
+            return redirect('home')  # You can change 'home' to the actual URL name
 
-    return render(request, 'login_page.html', {'error': error_message})
+    return render(request, 'login_page.html')
 
-def success_view(request):
-    return render(request, 'success_page.html')
-# Create your views here.
+def signup_view(request):
+    # Handle user registration
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            # Save the user to the database
+            user = form.save()
+            login(request, user)  # Automatically log in the user after signup
+            return redirect('home')  # Redirect to the home page after successful signup
+    else:
+        form = SignupForm()
+
+    return render(request, 'signup.html', {'form': form})
+
+
 def home_view(request):
-        return render(request,'Home.html')
+    return render(request, 'Home.html')
 
 def ReportForm(request):
-        return render(request,'ReportForm.html')
+    return render(request, 'ReportForm.html')
     
 
 
